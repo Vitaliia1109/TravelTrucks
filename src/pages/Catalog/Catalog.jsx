@@ -70,9 +70,9 @@ const Catalog = () => {
   };
 
   const handleSearch = () => {
-    dispatch(resetFilters()); // Скидаємо всі фільтри
+    dispatch(resetFilters());
     setSearchTriggered(true);
-    setFilteredCampers([]); // Скидаємо попередні результати
+    setFilteredCampers([]);
     if (Array.isArray(campersData.items)) {
       const filtered = campersData.items.filter((camper) => {
         if (

@@ -28,4 +28,16 @@
 .navLinksItem {
   font-family: Inter;
   font-size: 16px;
+  text-decoration: none;
+  font-size: 500;
+}
+
+.navLinksItemLink {
+  text-decoration: none;
+  color: #101828;
+}
+
+.activeLink {
+  text-decoration: none;
+  color: #d84343;
 }
