@@ -1,0 +1,102 @@
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+import Loader from "../../components/Loader/Loader";
+import Reviews from "../../components/Reviews/Reviews";
+import Details from "../../components/Details/Details";
+import BookingForm from "../../components/BookingForm/BookingForm";
+import css from "./CamperCard.module.css";
+
+const CamperCard = () => {
+  const { id } = useParams();
+  const [camper, setCamper] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [activeTab, setActiveTab] = useState("details");
+
+  useEffect(() => {
+    const fetchCamperDetails = async () => {
+      try {
+        const camperResponse = await axios.get(
+          `https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers/${id}`
+        );
+        setCamper(camperResponse.data);
+      } catch (error) {
+        console.error("Error fetching camper details:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCamperDetails();
+  }, [id]);
+
+  if (loading) {
+    return <Loader />;
+  }
+
+  if (!camper) {
+    return <div className={css.error}>Camper not found</div>;
+  }
+
+  return (
+    <div className={css.camperCard}>
+      {/* <header className={css.header}>
+        <nav className={css.navbar}>
+          <div className={css.logo}>
+            <h1>TravelTrucks</h1>
+          </div>
+          <ul className={css.navLinks}>
+            <li>
+              <a href="/">Home</a>
+            </li>
+            <li>
+              <a href="/catalog">Catalog</a>
+            </li>
+          </ul>
+        </nav>
+      </header> */}
+      <div className={css.content}>
+        <div className={css.camperHeader}>
+          <h1>{camper.name}</h1>
+          <p className={css.price}>
+            {camper.price.toLocaleString("en-US", {
+              style: "currency",
+              currency: "EUR",
+            })}
+          </p>
+          <div className={css.gallery}>
+            {camper.gallery &&
+              camper.gallery.map((image, index) => (
+                <img
+                  key={index}
+                  src={image.thumb}
+                  alt={`${camper.name} ${index}`}
+                  className={css.image}
+                />
+              ))}
+          </div>
+          <p>{camper.description}</p>
+        </div>
+        <div className={css.tabs}>
+          <button
+            className={activeTab === "details" ? css.activeTab : ""}
+            onClick={() => setActiveTab("details")}
+          >
+            Details
+          </button>
+          <button
+            className={activeTab === "reviews" ? css.activeTab : ""}
+            onClick={() => setActiveTab("reviews")}
+          >
+            Reviews
+          </button>
+        </div>
+        {activeTab === "details" && <Details camper={camper} />}
+        {activeTab === "reviews" && <Reviews reviews={camper.reviews} />}
+        <BookingForm camper={camper} />
+      </div>
+    </div>
+  );
+};
+
+export default CamperCard;

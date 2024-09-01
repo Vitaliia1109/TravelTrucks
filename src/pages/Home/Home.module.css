@@ -1,0 +1,41 @@
+.home {
+  /* text-align: center; */
+  /* padding: 20px; */
+}
+
+.banner {
+  background-image: url("/src/img/Background.png"); /* Вкажіть шлях до вашого зображення */
+  background-size: cover; /* Масштабувати зображення щоб покрити всю секцію */
+  background-position: center; /* Центрування зображення */
+  background-repeat: no-repeat; /* Заборонити повторення зображення */
+  height: 696px;
+  width: 1440px;
+  display: flex;
+
+  /* justify-content: center;
+  align-items: center; */
+}
+
+.bannerContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  /* background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  );  */
+  /* padding: 20px; */
+  /* border-radius: 8px; */
+  color: #f7f7f7;
+  margin-left: 64px;
+  margin-top: 260px;
+}
+
+h2 {
+  font-family: Inter;
+  font-size: 48px;
+  font-weight: 500;
+  margin: 0;
+}
