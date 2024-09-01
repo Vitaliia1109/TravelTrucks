@@ -18,7 +18,7 @@ import { combineReducers } from "redux";
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["favorites"], // Only persist the favorites slice
+  whitelist: ["favorites"],
 };
 
 const rootReducer = combineReducers({
@@ -34,7 +34,6 @@ export const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
-        // Ігноруємо дії redux-persist
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),

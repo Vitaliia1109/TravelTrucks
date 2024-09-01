@@ -1,4 +1,3 @@
-// import { useState } from "react";
 import { toast } from "react-hot-toast";
 import css from "./BookingForm.module.css";
 
@@ -6,7 +5,6 @@ const BookingForm = ({ camperId }) => {
   const handleBookingSubmit = (event) => {
     event.preventDefault();
 
-    // Отримання даних із форми
     const formData = new FormData(event.target);
     const bookingData = {
       camperId,
@@ -18,10 +16,10 @@ const BookingForm = ({ camperId }) => {
 
     console.log("Booking Data (імітовано відправку):", bookingData);
 
-    // Показ тосту
-    toast.success("Дякуємо! Ваша заявка була успішно відправлена.");
+    toast.success(
+      "Thank you! Your application has been successfully submitted."
+    );
 
-    // Очистка форми (за бажанням)
     event.target.reset();
   };
 

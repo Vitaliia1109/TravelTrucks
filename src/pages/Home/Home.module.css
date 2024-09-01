@@ -33,9 +33,32 @@
   margin-top: 260px;
 }
 
-h2 {
+.homeTitle {
   font-family: Inter;
   font-size: 48px;
   font-weight: 500;
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+p {
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 40px;
+  margin-top: 0;
+}
+
+.button {
+  font-family: Inter;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e44848;
+  color: #ffffff;
+  height: 56px;
+  width: 173px;
+  border-radius: 200px;
+  text-decoration: none;
 }

@@ -40,7 +40,6 @@ const Catalog = () => {
           const campersArray = Array.isArray(action.payload.items)
             ? action.payload.items
             : [];
-          console.log("Campers loaded:", campersArray);
           setFilteredCampers(campersArray);
         } else if (fetchCampers.rejected.match(action)) {
           console.error("Failed to load campers:", action.error);
@@ -111,7 +110,6 @@ const Catalog = () => {
 
         return true;
       });
-      console.log("Filtered campers:", filtered);
       setFilteredCampers(filtered);
     } else {
       console.error(
@@ -147,8 +145,6 @@ const Catalog = () => {
   }
 
   const campersToShow = searchTriggered ? filteredCampers : campersData.items;
-
-  console.log("Campers to show:", campersToShow);
 
   return (
     <div className={css.catalog}>

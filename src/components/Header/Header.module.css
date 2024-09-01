@@ -1,0 +1,31 @@
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+  margin-left: 64px;
+}
+
+.svgIcon {
+  width: 136px;
+  height: 16px;
+}
+
+.navLinks {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+  list-style: none;
+  padding: 0;
+}
+
+.navbar {
+  margin-left: 450px;
+}
+
+.navLinksItem {
+  font-family: Inter;
+  font-size: 16px;
+}

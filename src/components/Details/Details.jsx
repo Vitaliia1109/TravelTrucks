@@ -1,4 +1,3 @@
-// import React from "react";
 import css from "./Details.module.css";
 
 const Details = ({ camper }) => {

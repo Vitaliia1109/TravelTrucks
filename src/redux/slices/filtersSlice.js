@@ -33,7 +33,7 @@ const filtersSlice = createSlice({
       state.hasBathroom = !state.hasBathroom;
     },
     toggleAutomatic(state) {
-      state.hasAutomatic = !state.hasAutomatic; // Додаємо екшен для автоматичної коробки передач
+      state.hasAutomatic = !state.hasAutomatic; 
     },
     resetFilters(state) {
       state.location = "";
@@ -42,7 +42,7 @@ const filtersSlice = createSlice({
       state.hasKitchen = false;
       state.hasTV = false;
       state.hasBathroom = false;
-      state.hasAutomatic = false; // Скидаємо стан автоматичної коробки передач
+      state.hasAutomatic = false; 
     },
   },
 });

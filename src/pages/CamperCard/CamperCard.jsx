@@ -11,6 +11,7 @@ const CamperCard = () => {
   const { id } = useParams();
   const [camper, setCamper] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [activeTab, setActiveTab] = useState("details");
 
   useEffect(() => {
@@ -21,7 +22,7 @@ const CamperCard = () => {
         );
         setCamper(camperResponse.data);
       } catch (error) {
-        console.error("Error fetching camper details:", error);
+        setError("Error fetching camper details. Please try again later.");
       } finally {
         setLoading(false);
       }
@@ -34,27 +35,16 @@ const CamperCard = () => {
     return <Loader />;
   }
 
+  if (error) {
+    return <div className={css.error}>{error}</div>; // Error state is used here
+  }
+
   if (!camper) {
     return <div className={css.error}>Camper not found</div>;
   }
 
   return (
     <div className={css.camperCard}>
-      {/* <header className={css.header}>
-        <nav className={css.navbar}>
-          <div className={css.logo}>
-            <h1>TravelTrucks</h1>
-          </div>
-          <ul className={css.navLinks}>
-            <li>
-              <a href="/">Home</a>
-            </li>
-            <li>
-              <a href="/catalog">Catalog</a>
-            </li>
-          </ul>
-        </nav>
-      </header> */}
       <div className={css.content}>
         <div className={css.camperHeader}>
           <h1>{camper.name}</h1>
