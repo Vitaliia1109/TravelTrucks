@@ -237,7 +237,7 @@ const Catalog = () => {
             </label>
           </div>
         </div>
-        <button onClick={handleSearch} className={css.searchButton}>
+        <button className={css.button} onClick={handleSearch}>
           Search <FontAwesomeIcon icon={faSearch} />
         </button>
       </aside>
@@ -254,8 +254,8 @@ const Catalog = () => {
                 <div className={css.camperHeader}>
                   <h2>{camper.name}</h2>
                   <button
+                    className={css.buttonFavorite}
                     onClick={() => handleFavoriteToggle(camper)}
-                    className={css.favoriteButton}
                   >
                     {favorites.some((favorite) => favorite.id === camper.id) ? (
                       <FontAwesomeIcon icon={faHeart} />
@@ -281,7 +281,7 @@ const Catalog = () => {
                 <Link
                   to={`/catalog/${camper.id}`}
                   target="_blank"
-                  className={css.showMoreButton}
+                  className={css.button}
                 >
                   Show more
                 </Link>

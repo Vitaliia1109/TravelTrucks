@@ -45,7 +45,7 @@ const BookingForm = ({ camperId }) => {
           <label htmlFor="comment">Comment</label>
           <textarea id="comment" name="comment"></textarea>
         </div>
-        <button type="submit" className={css.submitButton}>
+        <button type="submit" className={css.button}>
           Send
         </button>
       </form>
